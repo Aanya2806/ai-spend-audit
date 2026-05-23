@@ -28,12 +28,16 @@ export default function Analytics({
   const categoryData: CategoryData[] = [];
 
   expenses.forEach((expense) => {
-    const existingCategory = categoryData.find(
-      (item) => item.name === expense.category
-    );
+    const existingCategory =
+      categoryData.find(
+        (item) =>
+          item.name ===
+          expense.category
+      );
 
     if (existingCategory) {
-      existingCategory.value += expense.amount;
+      existingCategory.value +=
+        expense.amount;
     } else {
       categoryData.push({
         name: expense.category,
@@ -47,6 +51,7 @@ export default function Analytics({
     "#00C49F",
     "#FFBB28",
     "#FF8042",
+    "#A020F0",
   ];
 
   return (
@@ -55,28 +60,43 @@ export default function Analytics({
         Spending Analytics
       </h2>
 
-      <PieChart width={400} height={300}>
-        <Pie
-          data={categoryData}
-          cx="50%"
-          cy="50%"
-          outerRadius={100}
-          dataKey="value"
-          label
+      {categoryData.length === 0 ? (
+        <p className="text-gray-500">
+          No analytics data available.
+        </p>
+      ) : (
+        <PieChart
+          width={400}
+          height={300}
         >
-          {categoryData.map((_, index) => (
-            <Cell
-              key={index}
-              fill={
-                COLORS[index % COLORS.length]
-              }
-            />
-          ))}
-        </Pie>
+          <Pie
+            data={categoryData}
+            cx="50%"
+            cy="50%"
+            outerRadius={100}
+            dataKey="value"
+            label
+          >
+            {categoryData.map(
+              (_, index) => (
+                <Cell
+                  key={index}
+                  fill={
+                    COLORS[
+                      index %
+                        COLORS.length
+                    ]
+                  }
+                />
+              )
+            )}
+          </Pie>
 
-        <Tooltip />
-        <Legend />
-      </PieChart>
+          <Tooltip />
+
+          <Legend />
+        </PieChart>
+      )}
     </div>
   );
 }

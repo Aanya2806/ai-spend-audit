@@ -1,5 +1,7 @@
 "use client";
+
 /* eslint-disable react-hooks/set-state-in-effect */
+
 import { useEffect, useState } from "react";
 
 import SpendForm from "./components/SpendForm";
@@ -18,21 +20,29 @@ export default function Home() {
     Expense[]
   >([]);
 
+  const [search, setSearch] =
+    useState("");
 
-useEffect(() => {
-  const savedExpenses =
-    window.localStorage.getItem("expenses");
+  const [filterCategory, setFilterCategory] =
+    useState("All");
 
-  if (!savedExpenses) return;
+  useEffect(() => {
+    const savedExpenses =
+      localStorage.getItem("expenses");
 
-  try {
-    const parsedData = JSON.parse(savedExpenses);
+    if (savedExpenses) {
+      try {
+        const parsedData: Expense[] =
+          JSON.parse(savedExpenses);
 
-    setExpenses(parsedData);
-  } catch {
-    console.log("Error loading expenses");
-  }
-}, []);
+        setExpenses(parsedData);
+      } catch {
+        console.log(
+          "Error loading expenses"
+        );
+      }
+    }
+  }, []);
 
   useEffect(() => {
     localStorage.setItem(
@@ -54,8 +64,29 @@ useEffect(() => {
     0
   );
 
+  const filteredExpenses = expenses.filter(
+    (expense) => {
+      const matchesSearch =
+        expense.title
+          .toLowerCase()
+          .includes(
+            search.toLowerCase()
+          );
+
+      const matchesCategory =
+        filterCategory === "All" ||
+        expense.category ===
+          filterCategory;
+
+      return (
+        matchesSearch &&
+        matchesCategory
+      );
+    }
+  );
+
   return (
-    <main className="p-6 max-w-3xl mx-auto">
+    <main className="p-6 max-w-4xl mx-auto">
       <h1 className="text-4xl font-bold mb-6">
         AI Spend Audit Dashboard
       </h1>
@@ -72,9 +103,55 @@ useEffect(() => {
 
       <SpendForm addExpense={addExpense} />
 
-      <ExpenseList expenses={expenses} />
+      <div className="flex gap-4 mt-6 mb-6">
+        <input
+          type="text"
+          placeholder="Search expenses..."
+          value={search}
+          onChange={(e) =>
+            setSearch(e.target.value)
+          }
+          className="border p-2 rounded w-full"
+        />
 
-      <Analytics expenses={expenses} />
+        <select
+          value={filterCategory}
+          onChange={(e) =>
+            setFilterCategory(
+              e.target.value
+            )
+          }
+          className="border p-2 rounded"
+        >
+          <option value="All">
+            All
+          </option>
+
+          <option value="Food">
+            Food
+          </option>
+
+          <option value="Travel">
+            Travel
+          </option>
+
+          <option value="Shopping">
+            Shopping
+          </option>
+
+          <option value="Bills">
+            Bills
+          </option>
+        </select>
+      </div>
+
+      <ExpenseList
+        expenses={filteredExpenses}
+      />
+
+      <Analytics
+        expenses={filteredExpenses}
+      />
     </main>
   );
 }
