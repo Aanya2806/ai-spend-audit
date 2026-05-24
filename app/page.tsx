@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import SpendForm from "./components/SpendForm";
 import ExpenseList from "./components/ExpenseList";
 import Analytics from "./components/Analytics";
+import AIInsights from "./components/AIInsights";
 
 interface Expense {
   id: number;
@@ -150,6 +151,9 @@ export default function Home() {
       />
 
       <Analytics
+        expenses={filteredExpenses}
+      />
+      <AIInsights
         expenses={filteredExpenses}
       />
     </main>
