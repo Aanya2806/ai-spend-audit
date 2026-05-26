@@ -86,96 +86,99 @@ export default function Home() {
     }
   );
 
- return (
-  <main className="min-h-screen bg-gray-100 p-6">
-    <div className="max-w-6xl mx-auto">
-      <h1 className="text-5xl font-bold mb-8 text-center">
-       AI Spend Audit & Analytics Dashboard
-      </h1>
+  return (
+    <main className="min-h-screen bg-slate-100 p-6">
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-5xl font-extrabold mb-8 text-center text-slate-800">
+          AI Spend Audit Dashboard
+        </h1>
 
-      <div className="bg-gradient-to-r from-black to-gray-800 text-white p-8 rounded-2xl mb-8 shadow-lg">
-        <h2 className="text-2xl font-semibold">
-          Total Spending
-        </h2>
+        <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white p-8 rounded-2xl mb-8 shadow-lg">
+          <h2 className="text-2xl font-semibold">
+            Total Spending
+          </h2>
 
-        <p className="text-5xl font-bold mt-4">
-          ₹ {totalSpending}
-        </p>
-      </div>
-
-      <div className="bg-white p-6 rounded-2xl shadow mb-8">
-        <SpendForm addExpense={addExpense} />
-      </div>
-
-      <div className="flex flex-col md:flex-row gap-4 mt-6 mb-8">
-        <input
-          type="text"
-          placeholder="Search expenses..."
-          value={search}
-          onChange={(e) =>
-            setSearch(e.target.value)
-          }
-          className="border p-3 rounded-xl w-full shadow-sm"
-        />
-
-        <select
-          value={filterCategory}
-          onChange={(e) =>
-            setFilterCategory(
-              e.target.value
-            )
-          }
-          className="border p-3 rounded-xl shadow-sm"
-        >
-          <option value="All">
-            All
-          </option>
-
-          <option value="Food">
-            Food
-          </option>
-
-          <option value="Travel">
-            Travel
-          </option>
-
-          <option value="Shopping">
-            Shopping
-          </option>
-
-          <option value="Bills">
-            Bills
-          </option>
-        </select>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div>
-          <ExpenseList
-            expenses={
-              filteredExpenses
-            }
-          />
+          <p className="text-5xl font-bold mt-4">
+            ₹ {totalSpending}
+          </p>
         </div>
 
-        <div className="space-y-8">
-          <Analytics
-            expenses={
-              filteredExpenses
+        <div className="bg-white p-6 rounded-2xl shadow-lg mb-8">
+          <SpendForm addExpense={addExpense} />
+        </div>
+
+        <div className="flex flex-col md:flex-row gap-4 mt-6 mb-8">
+          <input
+            type="text"
+            placeholder="Search expenses..."
+            value={search}
+            onChange={(e) =>
+              setSearch(e.target.value)
             }
+            className="border border-gray-300 p-3 rounded-xl w-full shadow-sm text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
-          <AIInsights
-            expenses={
-              filteredExpenses
+          <select
+            value={filterCategory}
+            onChange={(e) =>
+              setFilterCategory(
+                e.target.value
+              )
             }
-          />
+            className="border border-gray-300 p-3 rounded-xl shadow-sm text-black bg-white"
+          >
+            <option value="All">
+              All
+            </option>
+
+            <option value="Food">
+              Food
+            </option>
+
+            <option value="Travel">
+              Travel
+            </option>
+
+            <option value="Shopping">
+              Shopping
+            </option>
+
+            <option value="Bills">
+              Bills
+            </option>
+          </select>
         </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div>
+            <ExpenseList
+              expenses={
+                filteredExpenses
+              }
+            />
+          </div>
+
+          <div className="space-y-8">
+            <Analytics
+              expenses={
+                filteredExpenses
+              }
+            />
+
+            <AIInsights
+              expenses={
+                filteredExpenses
+              }
+            />
+          </div>
+        </div>
+
+        <footer className="text-center mt-12 text-gray-500">
+          Built with Next.js,
+          Tailwind CSS and
+          Recharts
+        </footer>
       </div>
-    </div>
-    <footer className="text-center mt-12 text-gray-500">
-      Built with Next.js, Tailwind CSS and Recharts
-    </footer>
-  </main>
-);
+    </main>
+  );
 }

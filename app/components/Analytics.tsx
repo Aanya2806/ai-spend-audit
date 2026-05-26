@@ -25,7 +25,8 @@ export default function Analytics({
 }: {
   expenses: Expense[];
 }) {
-  const categoryData: CategoryData[] = [];
+  const categoryData: CategoryData[] =
+    [];
 
   expenses.forEach((expense) => {
     const existingCategory =
@@ -47,16 +48,16 @@ export default function Analytics({
   });
 
   const COLORS = [
-    "#0088FE",
-    "#00C49F",
-    "#FFBB28",
-    "#FF8042",
-    "#A020F0",
+    "#2563EB",
+    "#7C3AED",
+    "#10B981",
+    "#F59E0B",
+    "#EF4444",
   ];
 
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-md">
-      <h2 className="text-2xl font-bold mb-4">
+    <div className="bg-white p-6 rounded-2xl shadow-lg">
+      <h2 className="text-2xl font-bold mb-4 text-slate-800">
         Spending Analytics
       </h2>
 
@@ -93,7 +94,6 @@ export default function Analytics({
           </Pie>
 
           <Tooltip />
-
           <Legend />
         </PieChart>
       )}

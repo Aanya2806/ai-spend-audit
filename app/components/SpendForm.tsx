@@ -14,11 +14,18 @@ export default function SpendForm({
 }: {
   addExpense: (expense: Expense) => void;
 }) {
-  const [title, setTitle] = useState("");
-  const [amount, setAmount] = useState("");
-  const [category, setCategory] = useState("");
+  const [title, setTitle] =
+    useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [amount, setAmount] =
+    useState("");
+
+  const [category, setCategory] =
+    useState("");
+
+  const handleSubmit = (
+    e: React.FormEvent
+  ) => {
     e.preventDefault();
 
     const newExpense: Expense = {
@@ -38,14 +45,16 @@ export default function SpendForm({
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4 mt-6"
+      className="space-y-4"
     >
       <input
         type="text"
         placeholder="Expense Title"
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        className="border p-2 rounded w-full"
+        onChange={(e) =>
+          setTitle(e.target.value)
+        }
+        className="border border-gray-300 p-3 rounded-xl w-full text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
         required
       />
 
@@ -53,8 +62,10 @@ export default function SpendForm({
         type="number"
         placeholder="Amount"
         value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-        className="border p-2 rounded w-full"
+        onChange={(e) =>
+          setAmount(e.target.value)
+        }
+        className="border border-gray-300 p-3 rounded-xl w-full text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
         required
       />
 
@@ -62,14 +73,16 @@ export default function SpendForm({
         type="text"
         placeholder="Category"
         value={category}
-        onChange={(e) => setCategory(e.target.value)}
-        className="border p-2 rounded w-full"
+        onChange={(e) =>
+          setCategory(e.target.value)
+        }
+        className="border border-gray-300 p-3 rounded-xl w-full text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
         required
       />
 
       <button
         type="submit"
-        className="bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition"
+        className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl hover:scale-105 transition"
       >
         Add Expense
       </button>
