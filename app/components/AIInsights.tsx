@@ -12,8 +12,8 @@ export default function AIInsights({
 }) {
   if (expenses.length === 0) {
     return (
-      <div className="mt-8 bg-white p-6 rounded-xl shadow">
-        <h2 className="text-2xl font-bold mb-4">
+      <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-200">
+        <h2 className="text-2xl font-bold mb-4 text-black">
           AI Insights
         </h2>
 
@@ -65,49 +65,49 @@ export default function AIInsights({
     );
 
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-md">
-      <h2 className="text-2xl font-bold mb-6">
+    <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-200">
+      <h2 className="text-2xl font-bold mb-6 text-black">
         AI Insights
       </h2>
 
       <div className="space-y-4">
-        <div className="border p-4 rounded-lg">
-          <h3 className="font-semibold">
+        <div className="border border-gray-200 p-4 rounded-xl bg-gray-50">
+          <h3 className="font-semibold text-black">
             Total Spending
           </h3>
 
-          <p className="text-lg mt-1">
+          <p className="text-lg mt-1 text-gray-700">
             ₹ {totalSpending}
           </p>
         </div>
 
-        <div className="border p-4 rounded-lg">
-          <h3 className="font-semibold">
+        <div className="border border-gray-200 p-4 rounded-xl bg-gray-50">
+          <h3 className="font-semibold text-black">
             Highest Expense
           </h3>
 
-          <p className="text-lg mt-1">
+          <p className="text-lg mt-1 text-gray-700">
             {highestExpense.title} —
             ₹ {highestExpense.amount}
           </p>
         </div>
 
-        <div className="border p-4 rounded-lg">
-          <h3 className="font-semibold">
+        <div className="border border-gray-200 p-4 rounded-xl bg-gray-50">
+          <h3 className="font-semibold text-black">
             Highest Spending Category
           </h3>
 
-          <p className="text-lg mt-1">
+          <p className="text-lg mt-1 text-gray-700">
             {highestCategory}
           </p>
         </div>
 
-        <div className="border p-4 rounded-lg bg-yellow-100">
+        <div className="border border-gray-300 p-4 rounded-xl bg-black text-white">
           <h3 className="font-semibold">
             Smart Suggestion
           </h3>
 
-          <p className="mt-1">
+          <p className="mt-1 text-gray-200">
             You are spending most on{" "}
             {highestCategory}. Consider
             optimizing your expenses in
