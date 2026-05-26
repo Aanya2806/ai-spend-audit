@@ -71,7 +71,7 @@ export default function AIInsights({
       </h2>
 
       <div className="space-y-4">
-        <div className="border border-gray-200 p-4 rounded-xl bg-gray-50">
+        <div className="border border-gray-300 p-4 rounded-xl bg-gray-100 text-black">
           <h3 className="font-semibold text-black">
             Total Spending
           </h3>
@@ -107,7 +107,7 @@ export default function AIInsights({
             Smart Suggestion
           </h3>
 
-          <p className="mt-1 text-gray-200">
+          <p className="mt-1 text-gray-700">
             You are spending most on{" "}
             {highestCategory}. Consider
             optimizing your expenses in
