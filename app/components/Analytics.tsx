@@ -48,16 +48,16 @@ export default function Analytics({
   });
 
   const COLORS = [
-    "#2563EB",
-    "#7C3AED",
-    "#10B981",
-    "#F59E0B",
-    "#EF4444",
+    "#000000",
+    "#404040",
+    "#737373",
+    "#A3A3A3",
+    "#D4D4D4",
   ];
 
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-lg">
-      <h2 className="text-2xl font-bold mb-4 text-slate-800">
+    <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-200">
+      <h2 className="text-2xl font-bold mb-4 text-black">
         Spending Analytics
       </h2>
 

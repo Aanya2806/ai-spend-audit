@@ -54,7 +54,7 @@ export default function SpendForm({
         onChange={(e) =>
           setTitle(e.target.value)
         }
-        className="border border-gray-300 p-3 rounded-xl w-full text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="border border-gray-300 p-3 rounded-xl w-full text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black"
         required
       />
 
@@ -65,7 +65,7 @@ export default function SpendForm({
         onChange={(e) =>
           setAmount(e.target.value)
         }
-        className="border border-gray-300 p-3 rounded-xl w-full text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="border border-gray-300 p-3 rounded-xl w-full text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black"
         required
       />
 
@@ -76,13 +76,13 @@ export default function SpendForm({
         onChange={(e) =>
           setCategory(e.target.value)
         }
-        className="border border-gray-300 p-3 rounded-xl w-full text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="border border-gray-300 p-3 rounded-xl w-full text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black"
         required
       />
 
       <button
         type="submit"
-        className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl hover:scale-105 transition"
+        className="bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition"
       >
         Add Expense
       </button>

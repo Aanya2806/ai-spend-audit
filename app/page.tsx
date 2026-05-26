@@ -87,13 +87,13 @@ export default function Home() {
   );
 
   return (
-    <main className="min-h-screen bg-slate-100 p-6">
+    <main className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-5xl font-extrabold mb-8 text-center text-slate-800">
+        <h1 className="text-5xl font-extrabold mb-8 text-center text-black">
           AI Spend Audit Dashboard
         </h1>
 
-        <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white p-8 rounded-2xl mb-8 shadow-lg">
+        <div className="bg-black text-white p-8 rounded-2xl mb-8 shadow-xl">
           <h2 className="text-2xl font-semibold">
             Total Spending
           </h2>
@@ -103,7 +103,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="bg-white p-6 rounded-2xl shadow-lg mb-8">
+        <div className="bg-white p-6 rounded-2xl shadow-lg mb-8 border border-gray-200">
           <SpendForm addExpense={addExpense} />
         </div>
 
@@ -115,7 +115,7 @@ export default function Home() {
             onChange={(e) =>
               setSearch(e.target.value)
             }
-            className="border border-gray-300 p-3 rounded-xl w-full shadow-sm text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="border border-gray-300 p-3 rounded-xl w-full shadow-sm text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black"
           />
 
           <select
@@ -173,7 +173,7 @@ export default function Home() {
           </div>
         </div>
 
-        <footer className="text-center mt-12 text-gray-500">
+        <footer className="text-center mt-12 text-gray-600">
           Built with Next.js,
           Tailwind CSS and
           Recharts
