@@ -18,26 +18,34 @@ export default function ExpenseList({
 
       <div className="space-y-4">
         {expenses.length === 0 ? (
-          <p className="text-gray-500">
-            No expenses found.
-          </p>
+          <div className="bg-white p-6 rounded-2xl shadow text-center">
+            <p className="text-gray-500 text-lg">
+              No expenses found.
+            </p>
+          </div>
         ) : (
           expenses.map((expense) => (
             <div
               key={expense.id}
               className="bg-white border p-5 rounded-2xl shadow-md hover:shadow-lg transition"
             >
-              <h3 className="font-semibold text-lg">
-                {expense.title}
-              </h3>
+              <div className="flex justify-between items-center">
+                <div>
+                  <h3 className="font-semibold text-lg">
+                    {expense.title}
+                  </h3>
 
-              <p className="mt-1">
-                ₹ {expense.amount}
-              </p>
+                  <p className="text-sm text-gray-500 mt-1">
+                    {expense.category}
+                  </p>
+                </div>
 
-              <p className="text-sm text-gray-500">
-                {expense.category}
-              </p>
+                <div>
+                  <p className="text-xl font-bold">
+                    ₹ {expense.amount}
+                  </p>
+                </div>
+              </div>
             </div>
           ))
         )}

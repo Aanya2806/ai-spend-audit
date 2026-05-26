@@ -90,7 +90,7 @@ export default function Home() {
   <main className="min-h-screen bg-gray-100 p-6">
     <div className="max-w-6xl mx-auto">
       <h1 className="text-5xl font-bold mb-8 text-center">
-        AI Spend Audit Dashboard
+       AI Spend Audit & Analytics Dashboard
       </h1>
 
       <div className="bg-gradient-to-r from-black to-gray-800 text-white p-8 rounded-2xl mb-8 shadow-lg">
@@ -173,6 +173,9 @@ export default function Home() {
         </div>
       </div>
     </div>
+    <footer className="text-center mt-12 text-gray-500">
+      Built with Next.js, Tailwind CSS and Recharts
+    </footer>
   </main>
 );
 }
