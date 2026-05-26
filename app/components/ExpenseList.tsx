@@ -7,8 +7,10 @@ interface Expense {
 
 export default function ExpenseList({
   expenses,
+  deleteExpense,
 }: {
   expenses: Expense[];
+  deleteExpense: (id: number) => void;
 }) {
   return (
     <div className="mt-6">
@@ -40,10 +42,21 @@ export default function ExpenseList({
                   </p>
                 </div>
 
-                <div>
+                <div className="text-right">
                   <p className="text-xl font-bold text-black">
                     ₹ {expense.amount}
                   </p>
+
+                  <button
+                    onClick={() =>
+                      deleteExpense(
+                        expense.id
+                      )
+                    }
+                    className="mt-2 bg-black text-white px-4 py-1 rounded-lg hover:bg-gray-800 transition"
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             </div>

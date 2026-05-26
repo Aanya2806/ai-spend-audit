@@ -59,6 +59,14 @@ export default function Home() {
     ]);
   };
 
+  const deleteExpense = (id: number) => {
+  setExpenses((prevExpenses) =>
+    prevExpenses.filter(
+      (expense) => expense.id !== id
+    )
+  );
+};
+
   const totalSpending = expenses.reduce(
     (total, expense) =>
       total + expense.amount,
@@ -152,9 +160,8 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div>
             <ExpenseList
-              expenses={
-                filteredExpenses
-              }
+              expenses={filteredExpenses}
+              deleteExpense={deleteExpense}
             />
           </div>
 
