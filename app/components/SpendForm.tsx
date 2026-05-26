@@ -69,7 +69,7 @@ export default function SpendForm({
 
       <button
         type="submit"
-        className="bg-black text-white px-4 py-2 rounded"
+        className="bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition"
       >
         Add Expense
       </button>

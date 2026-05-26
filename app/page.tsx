@@ -86,25 +86,28 @@ export default function Home() {
     }
   );
 
-  return (
-    <main className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6">
+ return (
+  <main className="min-h-screen bg-gray-100 p-6">
+    <div className="max-w-6xl mx-auto">
+      <h1 className="text-5xl font-bold mb-8 text-center">
         AI Spend Audit Dashboard
       </h1>
 
-      <div className="bg-black text-white p-6 rounded-xl mb-6">
-        <h2 className="text-xl font-semibold">
+      <div className="bg-gradient-to-r from-black to-gray-800 text-white p-8 rounded-2xl mb-8 shadow-lg">
+        <h2 className="text-2xl font-semibold">
           Total Spending
         </h2>
 
-        <p className="text-3xl font-bold mt-2">
+        <p className="text-5xl font-bold mt-4">
           ₹ {totalSpending}
         </p>
       </div>
 
-      <SpendForm addExpense={addExpense} />
+      <div className="bg-white p-6 rounded-2xl shadow mb-8">
+        <SpendForm addExpense={addExpense} />
+      </div>
 
-      <div className="flex gap-4 mt-6 mb-6">
+      <div className="flex flex-col md:flex-row gap-4 mt-6 mb-8">
         <input
           type="text"
           placeholder="Search expenses..."
@@ -112,7 +115,7 @@ export default function Home() {
           onChange={(e) =>
             setSearch(e.target.value)
           }
-          className="border p-2 rounded w-full"
+          className="border p-3 rounded-xl w-full shadow-sm"
         />
 
         <select
@@ -122,7 +125,7 @@ export default function Home() {
               e.target.value
             )
           }
-          className="border p-2 rounded"
+          className="border p-3 rounded-xl shadow-sm"
         >
           <option value="All">
             All
@@ -146,16 +149,30 @@ export default function Home() {
         </select>
       </div>
 
-      <ExpenseList
-        expenses={filteredExpenses}
-      />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div>
+          <ExpenseList
+            expenses={
+              filteredExpenses
+            }
+          />
+        </div>
 
-      <Analytics
-        expenses={filteredExpenses}
-      />
-      <AIInsights
-        expenses={filteredExpenses}
-      />
-    </main>
-  );
+        <div className="space-y-8">
+          <Analytics
+            expenses={
+              filteredExpenses
+            }
+          />
+
+          <AIInsights
+            expenses={
+              filteredExpenses
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </main>
+);
 }

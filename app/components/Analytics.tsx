@@ -55,7 +55,7 @@ export default function Analytics({
   ];
 
   return (
-    <div className="mt-8 bg-white p-6 rounded-xl shadow">
+    <div className="bg-white p-6 rounded-2xl shadow-md">
       <h2 className="text-2xl font-bold mb-4">
         Spending Analytics
       </h2>

@@ -65,7 +65,7 @@ export default function AIInsights({
     );
 
   return (
-    <div className="mt-8 bg-white p-6 rounded-xl shadow">
+    <div className="bg-white p-6 rounded-2xl shadow-md">
       <h2 className="text-2xl font-bold mb-6">
         AI Insights
       </h2>

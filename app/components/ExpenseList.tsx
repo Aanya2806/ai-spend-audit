@@ -25,7 +25,7 @@ export default function ExpenseList({
           expenses.map((expense) => (
             <div
               key={expense.id}
-              className="border p-4 rounded-lg shadow"
+              className="bg-white border p-5 rounded-2xl shadow-md hover:shadow-lg transition"
             >
               <h3 className="font-semibold text-lg">
                 {expense.title}
